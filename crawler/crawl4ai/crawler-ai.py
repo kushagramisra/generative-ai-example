@@ -47,18 +47,7 @@ async def main():
         )
     )
 
-    # 2) Example extraction strategy
-    # schema = {
-    #     "name": "Articles",
-    #     "baseSelector": "div.article",
-    #     "fields": [
-    #         {"name": "title", "selector": "h2", "type": "text"},
-    #         {"name": "link", "selector": "a", "type": "attribute", "attribute": "href"}
-    #     ]
-    # }
-    # extraction = JsonCssExtractionStrategy(schema)
-
-    # 3) Example LLM content filtering
+    # 2) Example LLM content filtering
 
     gemini_config = LLMConfig(
         provider="openai/gpt-4o-mini",
@@ -156,20 +145,7 @@ async def main():
 
         print(result.markdown)
         print('=======================================================================')
-        # if result.success:
-        #     # Print clean content
-        #     print("Content:", result.markdown[:500])  # First 500 chars
-        #
-        #     # Process images
-        #     for image in result.media["images"]:
-        #         print(f"Found image: {image['src']}")
-        #
-        #     # Process links
-        #     for link in result.links["internal"]:
-        #         print(f"Internal link: {link['href']}")
-        #
-        # else:
-        #     print(f"Crawl failed: {result.error_message}")
+
 
 if __name__ == "__main__":
     asyncio.run(main())
